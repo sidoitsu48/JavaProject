@@ -50,6 +50,29 @@ public class AdressFkt {
         });
     }
     
+    public String getEmail(ArrayList<String> adresse) {
+        String mail = "";
+        for (String item : adresse) {
+            if (item.contains("@")) {
+                mail = item;
+            } else {
+                mail = "";
+            }
+        }
+        return mail;
+    }
+
+    public static boolean hasItem(ArrayList<String> name, String gesucht) {
+        boolean b = false;
+        for (String item : name) {
+            if (item.toLowerCase().contains(gesucht.toLowerCase())) {
+                b = true;
+            }
+        }
+        return b;
+    }
+    
+    
     public void email() {
         System.out.println("Es werden alle E-Mails angezeigt!");
         adresse.forEach(var -> {

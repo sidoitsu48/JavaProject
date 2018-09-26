@@ -22,7 +22,7 @@ public class Stammdaten implements AdressInterface {
     private String telefon;
     private String plz;
     Random r = new Random();
-    
+
     public String getVorname() {
         return VORNAMEN[r.nextInt(VORNAMEN.length)];
     }
@@ -68,33 +68,9 @@ public class Stammdaten implements AdressInterface {
             p = p + Integer.toString(r.nextInt(9));
         }
         return p;
-    }
+    }      
 
-    public static String getEmail(ArrayList<String> adresse) {
-        String mail="";
-        for (String item : adresse){
-            if (item.contains("@")){
-                mail=item;
-            }
-            else {
-                mail="";
-            }
-        }
-        return mail;
-    }
-
- public static boolean hasItem(ArrayList<String> name, String gesucht) {
-        boolean b = false;
-        for (String item : name) {
-            if (item.toLowerCase().contains(gesucht.toLowerCase())) {
-                b = true;
-            }
-        }
-    return b;
-    }
-        
-
-    public static String createEmail(String vorname, String nachname) {
+    public String getEmail(String vorname, String nachname) {
         Random r = new Random();
         String dname = DOMAINNAMES[r.nextInt(DOMAINNAMES.length)].toLowerCase();
         String dom = DOMAINS[r.nextInt(DOMAINS.length)].toLowerCase();
@@ -133,7 +109,7 @@ public class Stammdaten implements AdressInterface {
         address.add(name.getStrasse());
         address.add(name.getPlz()+ " " + name.getStadt());
         address.add(name.getTelefon());
-        address.add(createEmail(vorname, nachname));
+        address.add(name.getEmail(vorname, nachname));
         return address;
     }
 }
