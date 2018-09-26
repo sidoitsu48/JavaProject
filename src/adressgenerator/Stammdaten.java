@@ -89,6 +89,7 @@ public class Stammdaten implements AdressInterface {
             name = name.replaceAll("ß", "ss");
             name = name.replaceAll(" ", "");
             name = name.replaceAll("-", "");
+            name = name.replaceAll("/", "");
             name = name.replaceAll("von ", "");
         }
         return name;
